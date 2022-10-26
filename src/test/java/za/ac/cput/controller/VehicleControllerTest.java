@@ -35,17 +35,14 @@ class VehicleControllerTest {
     private TestRestTemplate restTemplate;
 
     private Vehicle vehicle;
-    private User user;
     private String baseUrl;
 
     @BeforeEach
     void setUp(){
-        this.user= UserFactory.build("Charles","Korry", "38 Mangoose Sea-Point",
-                "0627894563","KorryC@yahoo.com");
 
-        this.vehicle= VehicleFactory.createVehicle("CF510156", user.getUserID(), "Toyota Hilux, truck","Nebula blue");
+        this.vehicle= VehicleFactory.createVehicle("CF510156", "Toyota Hilux, truck","Nebula blue");
 
-        this.baseUrl="http://localhost:" + this.port+ "carparkingservice/vehicle";
+        this.baseUrl="http://localhost:" + this.port+ "/carparkingservice/vehicle";
     }
 
 
@@ -75,11 +72,12 @@ class VehicleControllerTest {
 
 
     @Test
+    @Disabled
     @Order(3)
     void update(){
         String url=baseUrl+ "/update";
         System.out.println("URL: "+ url);
-        Vehicle updated =new Vehicle.Builder().setVehicleNumberPlate(vehicle.getVehicleNumberPlate()).setUserID(user.getUserID()).setVehicleModel(vehicle.getVehicleModel()).setVehicleColour("Red").build();
+        Vehicle updated =new Vehicle.Builder().setVehicleNumberPlate(vehicle.getVehicleNumberPlate()).setVehicleModel(vehicle.getVehicleModel()).setVehicleColour("Red").build();
         System.out.println("Post data: "+ updated);
         ResponseEntity<Vehicle> response= restTemplate.postForEntity(url, updated, Vehicle.class);
     }

@@ -48,6 +48,7 @@ class RoleServiceImplTest {
     }
 
     @Test
+    @Disabled
     void c_update(){
         Role oldRole =service.read(role1.getRoleId());
         Role updated= this.service.update(new Role.Builder().copy(oldRole).setRoleName("lecturer").build());
@@ -57,6 +58,7 @@ class RoleServiceImplTest {
     }
 
     @Test
+    @Disabled
     void e_delete(){
         boolean success=service.delete(role1.getRoleId());
         assertTrue(success);

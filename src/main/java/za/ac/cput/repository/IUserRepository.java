@@ -4,10 +4,13 @@ package za.ac.cput.repository;
  * Date: 09 April 2022
  */
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import za.ac.cput.entity.User;
 
 import java.util.List;
 
-public interface IUserRepository extends IRepository<User, String> {
-    public List<User> getAll();
+@Repository
+public interface IUserRepository extends JpaRepository<User, String> {
+ //   public List<User> getAll();
 }

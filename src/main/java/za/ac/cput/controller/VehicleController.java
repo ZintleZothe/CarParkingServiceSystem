@@ -17,7 +17,7 @@ import za.ac.cput.service.impl.VehicleServiceImpl;
 import java.util.List;
 
 @RestController
-@RequestMapping("carparkingservice/vehicle")
+@RequestMapping("/carparkingservice/vehicle")
 public class VehicleController {
 
 
@@ -34,7 +34,7 @@ public class VehicleController {
     //C-> Create
     @PostMapping("/create")
     public Vehicle create(@RequestBody Vehicle vehicle){
-        Vehicle newVehicle= VehicleFactory.createVehicle(vehicle.getVehicleNumberPlate(),vehicle.getUserID(), vehicle.getVehicleModel(), vehicle.getVehicleColour());
+        Vehicle newVehicle= VehicleFactory.createVehicle(vehicle.getVehicleNumberPlate(), vehicle.getVehicleModel(), vehicle.getVehicleColour());
         return vehicleService.create(newVehicle);
     }
 
@@ -45,10 +45,10 @@ public class VehicleController {
     }
 
     //U->Update
-    @PostMapping("/update")
-    public Vehicle update(@RequestBody Vehicle vehicle){
-        return vehicleService.update(vehicle);
-    }
+//    @PostMapping("/update")
+//    public Vehicle update(@RequestBody Vehicle vehicle){
+//        return vehicleService.update(vehicle);
+//    }
 
     @DeleteMapping("/delete/{id}")
     public boolean delete(@PathVariable String vehicleNumberPlate){
@@ -61,13 +61,13 @@ public class VehicleController {
     }
 
 
-    @GetMapping("/findvehicle/{id}")
-    //get list of vehicles registered by the user: using userid to get vehicles
-    public ResponseEntity<List<Vehicle>> getVehiclesGivenUserId(@PathVariable String userID){
-        List<Vehicle> vehicles=this.vehicleService.findVehiclesGivenUserId(userID);
-        return ResponseEntity.ok(vehicles);
-        //return vehicleService.findVehicleGivenUserId(userId);
-    }
+//    @GetMapping("/findvehicle/{id}")
+//    //get list of vehicles registered by the user: using userid to get vehicles
+//    public ResponseEntity<List<Vehicle>> getVehiclesGivenUserId(@PathVariable String userID){
+//        List<Vehicle> vehicles=this.vehicleService.findVehiclesGivenUserId(userID);
+//        return ResponseEntity.ok(vehicles);
+//        //return vehicleService.findVehicleGivenUserId(userId);
+//    }
 
 
 

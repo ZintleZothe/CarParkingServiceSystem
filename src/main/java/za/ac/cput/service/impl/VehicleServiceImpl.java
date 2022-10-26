@@ -68,19 +68,19 @@ public class VehicleServiceImpl implements VehicleService {
 //       return this.repository.findVehicleGivenUserId(userID);
 //    }
 
-    @Override
-    public List<Vehicle> findVehiclesGivenUserId(String userID) {
-
-        List<Vehicle> vehiclesGivenUserId = new ArrayList<>();
-        List<Vehicle> vehicles = getAll();
-
-        for (Vehicle vehicle : vehicles) {
-            if (vehicle.getUserID().equals(userID)) {
-                vehiclesGivenUserId.add(vehicle);
-                System.out.println(vehicle.getVehicleNumberPlate());
-            }
-        }
-        return vehiclesGivenUserId;
+//    @Override
+//    public List<Vehicle> findVehiclesGivenUserId(String userID) {
+//
+//        List<Vehicle> vehiclesGivenUserId = new ArrayList<>();
+//        List<Vehicle> vehicles = getAll();
+//
+//        for (Vehicle vehicle : vehicles) {
+//            if (vehicle.getUserID().equals(userID)) {
+//                vehiclesGivenUserId.add(vehicle);
+//                System.out.println(vehicle.getVehicleNumberPlate());
+//            }
+//        }
+//        return vehiclesGivenUserId;
+//
 //    }
-    }
 }

@@ -17,9 +17,7 @@ class VehicleFactoryTest {
     @Test
     //successful test with correct input
     public void createVehicle(){
-        User user=UserFactory.build("Abongile","Tshopi", "42071 Makhaza khayelitsha",
-                "0734561234","aboshT2@gmail.com");
-        Vehicle vehicle= VehicleFactory.createVehicle("CF234246",user.getUserID() ,"Ford eco-sport, SUV","Diamond white");
+        Vehicle vehicle= VehicleFactory.createVehicle("CF234246" ,"Ford eco-sport, SUV","Diamond white");
         assertNotNull(vehicle);
         System.out.println(vehicle);
 
@@ -28,10 +26,8 @@ class VehicleFactoryTest {
     @Test
         //Incorrect string input to test the isEmptyOrNull method
     void CreateVehicleWithAnError(){
-        User user=UserFactory.build("Abongile","Tshopi", "42071 Makhaza khayelitsha",
-                "0734561234","aboshT2@gmail.com");
         Exception exception=assertThrows(IllegalArgumentException.class, ()->
-                VehicleFactory.createVehicle("", user.getUserID() ,"Ford eco-sport, SUV","Diamond white"));
+                VehicleFactory.createVehicle("" ,"Ford eco-sport, SUV","Diamond white"));
         System.out.println( exception.getMessage()+": vehicleNumberplate");
 
     }

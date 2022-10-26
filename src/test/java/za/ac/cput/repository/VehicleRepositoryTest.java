@@ -28,9 +28,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
    @Autowired
    private VehicleRepository repository;
-   private static User user=UserFactory.build("Abongile","Tshopi", "42071 Makhaza khayelitsha",
-            "0734561234","aboshT2@gmail.com");
-   private static Vehicle vehicle= VehicleFactory.createVehicle("CF234246",user.getUserID(),"Ford ecosport, SUV","Diamond white");
+   private static Vehicle vehicle= VehicleFactory.createVehicle("CF234246","Ford ecosport, SUV","Diamond white");
 
 
     @Test

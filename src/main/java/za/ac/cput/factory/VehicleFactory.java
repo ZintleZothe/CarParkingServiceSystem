@@ -9,7 +9,7 @@ import za.ac.cput.util.Helper;
 
 
 public class VehicleFactory {
-    public static Vehicle createVehicle(String vehicleNumberPlate,String userID ,String vehicleModel, String vehicleColour){
+    public static Vehicle createVehicle(String vehicleNumberPlate,String vehicleModel, String vehicleColour){
 
         Helper.isEmptyOrNull(vehicleNumberPlate);
         Helper.isEmptyOrNull(vehicleModel);
@@ -18,7 +18,6 @@ public class VehicleFactory {
 
         Vehicle vehicle = new Vehicle.Builder()
                 .setVehicleNumberPlate(vehicleNumberPlate)
-                .setUserID(userID)
                 .setVehicleModel(vehicleModel)
                 .setVehicleColour(vehicleColour)
                 .build();

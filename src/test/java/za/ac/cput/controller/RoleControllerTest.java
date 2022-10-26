@@ -40,7 +40,7 @@ public class RoleControllerTest {
     void setUp(){
         this.role= RoleFactory.createRole("Student");
 
-        this.baseUrl="http://localhost:" + this.port+ "carparkingservice/role";
+        this.baseUrl="http://localhost:" + this.port+ "/carparkingservice/role";
     }
 
     //CRUD Testing
@@ -58,6 +58,7 @@ public class RoleControllerTest {
                 ()-> assertNotNull(response.getBody())
         );
     }
+
 
     //CRUD Testing
     // R-> Read
@@ -109,6 +110,7 @@ public class RoleControllerTest {
 
 
     }
+
 
 
 }

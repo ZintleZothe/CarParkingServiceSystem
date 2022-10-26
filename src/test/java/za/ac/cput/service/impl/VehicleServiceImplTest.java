@@ -29,16 +29,12 @@ class VehicleServiceImplTest {
     @Autowired
     private VehicleServiceImpl service;
 
-    //users
-    private static User user1= UserFactory.build("Abongile","Tshopi", "42071 Makhaza khayelitsha",
-            "0734561234","aboshT2@gmail.com");
-    private static User user2= UserFactory.build("Charles","Korry", "38 Mangoose Sea-Point",
-            "0627894563","KorryC@yahoo.com");
+
 
     //vehicles
-    private static Vehicle vehicle1 = VehicleFactory.createVehicle("CF234246", user1.getUserID(), "Ford eco-sport, SUV","Diamond white");
-    private static Vehicle vehicle2 = VehicleFactory.createVehicle("CF510156", user1.getUserID(), "Toyota Hilux, truck","Nebula blue");
-    private static Vehicle vehicle3 = VehicleFactory.createVehicle("CF369125", user2.getUserID(), "Hyundai Accent, sedan","Black");
+    private static Vehicle vehicle1 = VehicleFactory.createVehicle("CF234246", "Ford eco-sport, SUV","Diamond white");
+    private static Vehicle vehicle2 = VehicleFactory.createVehicle("CF510156", "Toyota Hilux, truck","Nebula blue");
+    private static Vehicle vehicle3 = VehicleFactory.createVehicle("CF369125",  "Hyundai Accent, sedan","Black");
 
 
     @Test
@@ -68,16 +64,15 @@ class VehicleServiceImplTest {
         System.out.println("Read: "+read);
     }
 
-    @Test
-    void c_update(){
-
-        Vehicle oldVehicle =service.read(vehicle1.getVehicleNumberPlate());
-        assertEquals(oldVehicle.getUserID(),vehicle1.getUserID());
-        Vehicle updated=this.service.update(new Vehicle.Builder().copy(oldVehicle).setVehicleColour("Red").build());
-        assertNotNull(updated);
-        System.out.println("Update successful : "+ updated);
-
-    }
+//    @Test
+//    void c_update(){
+//
+//        Vehicle oldVehicle =service.read(vehicle1.getVehicleNumberPlate());
+//        Vehicle updated=this.service.update(new Vehicle.Builder().copy(oldVehicle).setVehicleColour("Red").build());
+//        assertNotNull(updated);
+//        System.out.println("Update successful : "+ updated);
+//
+//    }
 
     @Test
     void e_delete(){
@@ -100,10 +95,10 @@ class VehicleServiceImplTest {
 //        System.out.println(vehicle);
 //    }
 //
-    @Test
-    void g_findVehiclesGivenUserId(){
-        List<Vehicle>  vehicles=service.findVehiclesGivenUserId(vehicle2.getUserID());
-        System.out.println("User "+ vehicle2.getUserID() + " has the following vehicle: ");
-        System.out.println(vehicles);
-    }
+//    @Test
+//    void g_findVehiclesGivenUserId(){
+//        List<Vehicle>  vehicles=service.findVehiclesGivenUserId(vehicle2.getUserID());
+//        System.out.println("User "+ vehicle2.getUserID() + " has the following vehicle: ");
+//        System.out.println(vehicles);
+//    }
 }
